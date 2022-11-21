@@ -62,7 +62,10 @@ public class SpringBootMain {
      *  - It should be able to audit transfers or withdrawals
      *    Audit is maintained
      *
+     *    Simple Repository pattern with layer of Abstraction is used. Dao, Factory and strategy pattern can be considered
+     *
      *  * Scope of Changes: *
+     *  - Remove Unused or not required code which is kept for representation purpose only
      *  - Using value types wherever possible with Data Validations
      *  - Write More tests to cover All possible cases
      *  - Design decisions based on Potential future use cases

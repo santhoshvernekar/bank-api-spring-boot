@@ -42,37 +42,4 @@ public class Account extends BaseEntity {
     @JoinColumn(name = "card_id")
     private Card card;
 
-
-//    public static Account fromDto(AccountDto dto) {
-//        Account converted = new Account();
-//        BeanUtils.copyProperties(dto, converted);
-//        CardDto cardDto= dto.getCard();
-//        Card cardConverted = new Card();
-//        BeanUtils.copyProperties(cardDto, cardConverted);
-//        converted.setCard(cardConverted);
-//        return converted;
-//    }
-//
-//    public static AccountDto toDto(Account entity) {
-//        AccountDto converted = new AccountDto();
-//        CardDto cardDto = new CardDto();
-//        cardDto.setCardNumber(entity.getCard().getCardNumber());
-//        cardDto.setCardType(entity.getCard().getCardType());
-//        cardDto.setCvvNumber(entity.getCard().getCvvNumber());
-//        cardDto.setExpiryDate(entity.getCard().getExpiryDate());
-//        cardDto.setAvailableCardLimit(entity.getCard().getAvailableCardLimit());
-//        converted.setCard(cardDto);
-//        converted.setCurrentBalance(entity.getCurrentBalance());
-//        converted.setCustomerId(entity.getCustomer().getId());
-//        converted.setCustomerId(entity.getId());
-//        return converted;
-//    }
-//
-//    public  static BalanceDto toBalanceDto(Account entity) {
-//        BalanceDto converted = new BalanceDto();
-//        converted.setAccountId(entity.getId());
-//        converted.setCurrentBalance(entity.getCurrentBalance());
-//        return converted;
-//    }
-
 }

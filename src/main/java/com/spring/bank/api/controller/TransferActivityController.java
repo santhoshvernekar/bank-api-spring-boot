@@ -5,6 +5,7 @@ import com.spring.bank.api.model.dto.StatusResponse;
 import com.spring.bank.api.model.dto.TransferActivityByAccountDto;
 import com.spring.bank.api.model.dto.TransferActivityByCardDto;
 import com.spring.bank.api.service.ITransferActivityService;
+import com.spring.bank.api.utils.ValidationHelper;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,7 @@ public class TransferActivityController {
     @PostMapping("/card")
     public ResponseEntity<StatusResponse> transferByCard(@RequestBody @Valid TransferActivityByCardDto request) {
         Preconditions.checkNotNull(request, "Invalid request");
-        //  Preconditions.checkArgument(!ValidationHelper.isNegative(request.getAmount()), "Negative Amount can't be transferred");
+        Preconditions.checkArgument(!ValidationHelper.isNegative(request.getAmount()), "Negative Amount can't be transferred");
         transferActivityService.transferByCardDetails(request);
         return new ResponseEntity<>(new StatusResponse("Transferred Successfully"), HttpStatus.OK);
     }
@@ -50,7 +51,7 @@ public class TransferActivityController {
     @PostMapping
     public ResponseEntity<StatusResponse> transferByAccountDetails(@RequestBody @Valid TransferActivityByAccountDto request) {
         Preconditions.checkNotNull(request, "Invalid request");
-        //  Preconditions.checkArgument(!ValidationHelper.isNegative(request.getAmount()), "Negative Amount can't be transferred");
+        Preconditions.checkArgument(!ValidationHelper.isNegative(request.getAmount()), "Negative Amount can't be transferred");
         transferActivityService.transferByAccountDetails(request);
         return new ResponseEntity<>(new StatusResponse("Transferred Successfully"), HttpStatus.OK);
     }
