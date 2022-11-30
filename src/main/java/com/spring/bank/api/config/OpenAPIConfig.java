@@ -18,11 +18,11 @@ public class OpenAPIConfig {
     @Bean
     public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
         return new OpenAPI()
-                .info(new Info().title("CRUD API")
+                .info(new Info().title("Bank API")
                         .version(appVersion)
                         .contact(new Contact().name("Santhosh M V")
                                 .url("https://github.com/santhoshvernekar"))
-                        .description("This is a sample CRUD application using spring data")
+                        .description("This is a sample Bank API using spring boot")
                         .termsOfService("http://swagger.io/terms/")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }

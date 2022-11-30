@@ -9,7 +9,9 @@ import com.spring.bank.api.model.enums.ActivityType;
 import java.math.BigDecimal;
 
 public class TransactionAuditHelper {
-
+/*
+ * used for just building the Objects using Lombok builder
+ * */
     public static TransactionAudit.TransactionAuditBuilder getRegularTransactionLog(ActivityType transactionType,
                                                                                     Account account, ActionType action, BigDecimal amount) {
         return TransactionAudit.builder()

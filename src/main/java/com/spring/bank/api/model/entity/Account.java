@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 @Entity
 @Audited
 @Table(name = "account")
+@ToString
 @EntityListeners(AuditingEntityListener.class)
 /*
  AccountFactory Can be created when have different type of Accounts like creation of

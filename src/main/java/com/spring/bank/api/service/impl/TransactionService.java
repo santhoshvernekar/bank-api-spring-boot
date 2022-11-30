@@ -14,9 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -24,9 +22,14 @@ import java.util.Objects;
 public class TransactionService implements ITransactionService {
     private final IValidationService validationService;
     private final ITransactionalFeeService transactionalFeeService;
-    private final IAccountService accountService;
+    private final IAccountActivityService accountActivityService;
     private final ITransactionAuditService transactionAuditService;
 
+    /*
+     *  Injections and Constructor is generated from Lombok
+     *
+     *
+     * */
     @Override
     public void initiateWithdrawal(Account account, BigDecimal amount) {
         Preconditions.checkNotNull(account, "Account object is Invalid");
@@ -36,8 +39,8 @@ public class TransactionService implements ITransactionService {
                 TransactionAuditHelper.getRegularTransactionLog(ActivityType.WITHDRAW, account, ActionType.DEBIT, amount);
         try {
             receiveAmountFromSenderAccount(transaction, account, amount);
-            logs.add(transaction.remarks(ActivityStatus.SUCCESS.name()).build());
         } catch (OutOfBalanceException ex) {
+            // In our projects we send these notifications to ELK Db
             logs.add(TransactionAuditHelper.getFailureTransactionLog(transaction, ActivityStatus.NO_BALANCE, ex.getMessage()).build());
             throw ex;
         } catch (Exception ex) {
@@ -60,9 +63,8 @@ public class TransactionService implements ITransactionService {
             validationService.validateAmountValue(amount);
             receiveAmountFromSenderAccount(fromAccountTransaction, fromAccount, amount);
             sendAmountToReceiverAccount(toAccountTransaction, toAccount, amount);
-            logs.add(fromAccountTransaction.remarks(ActivityStatus.SUCCESS.name()).build());
-            logs.add(toAccountTransaction.build());
         } catch (OutOfBalanceException ex) {
+            // In our projects we send these notifications to ELK DB
             logs.add(TransactionAuditHelper.getFailureTransactionLog(fromAccountTransaction, ActivityStatus.NO_BALANCE, ex.getMessage()).build());
             logs.add(TransactionAuditHelper.getFailureTransactionLog(toAccountTransaction, ActivityStatus.NO_BALANCE, ex.getMessage()).build());
             throw ex;
@@ -79,6 +81,7 @@ public class TransactionService implements ITransactionService {
     }
 
     private void basicChecksBeforeTransfer(Account fromAccount, Account toAccount) {
+        // For more detailed checks this can be abstracted
         Preconditions.checkNotNull(fromAccount, "fromAccount doesn't Exist");
         Preconditions.checkNotNull(toAccount, "toAccount doesn't Exist");
         Preconditions.checkArgument(!Objects.equals(fromAccount.getId(), toAccount.getId()),
@@ -94,22 +97,24 @@ public class TransactionService implements ITransactionService {
 
         validationService.validateWithdrawalCondition(account, totalAmount);
 
-        Account senderAccount = accountService.reduceBalance(account, totalAmount);
+        Account senderAccount = accountActivityService.reduceBalance(account, totalAmount);
         validationService.validateCurrentBalance(senderAccount);
 
         transactionAuditBuilder.status(ActivityStatus.SUCCESS)
                 .fee(calculatedFee)
                 .totalAmount(totalAmount)
-                .afterBalance(senderAccount.getCurrentBalance());
+                .afterBalance(senderAccount.getCurrentBalance()).remarks(ActivityStatus.SUCCESS.name());
+        transactionAuditService.saveLogs(Arrays.asList(transactionAuditBuilder.build()));
 
     }
 
     @Override
     public void sendAmountToReceiverAccount(TransactionAudit.TransactionAuditBuilder transactionAuditBuilder, Account account, BigDecimal amount) {
-        Account receiverAccount = accountService.increaseBalance(account, amount);
+        Account receiverAccount = accountActivityService.increaseBalance(account, amount);
         transactionAuditBuilder.status(ActivityStatus.SUCCESS)
                 .fee(BigDecimal.ZERO)
                 .totalAmount(amount)
                 .afterBalance(receiverAccount.getCurrentBalance());
+        transactionAuditService.saveLogs(Collections.singletonList(transactionAuditBuilder.build()));
     }
 }

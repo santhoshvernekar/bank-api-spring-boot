@@ -4,4 +4,6 @@ import com.spring.bank.api.model.entity.Card;
 
 public interface ICardService {
     Card getCardById(Long cardId);
+
+    Card getByCardNumber(Long cardNumber);
 }

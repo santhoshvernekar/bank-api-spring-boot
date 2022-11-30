@@ -7,6 +7,7 @@ import com.spring.bank.api.model.entity.Card;
 import com.spring.bank.api.model.entity.Customer;
 import com.spring.bank.api.repository.AccountRepository;
 import com.spring.bank.api.repository.CardRepository;
+import com.spring.bank.api.service.IAccountActivityService;
 import com.spring.bank.api.service.IAccountService;
 import com.spring.bank.api.service.ICustomerService;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ import java.util.List;
 @Slf4j
 @AllArgsConstructor
 @Service
-public class AccountService implements IAccountService {
+public class AccountService implements IAccountService, IAccountActivityService {
     private static final String MESSAGE_FORMAT_NO_ACCOUNT = "No Account by AccountId: %s";
     private final AccountRepository accountRepository;
     // Below dependencies can be extracted from Class with another service
@@ -69,7 +70,7 @@ public class AccountService implements IAccountService {
         Customer customer = customerService.getCustomer(customerId);
         account.setCustomer(customer);
         Card card = account.getCard();
-        account.setCard(null);
+        //  account.setCard(null);
         Account savedAccount = accountRepository.save(account);
         card.setAccount(savedAccount);
         cardRepository.save(card);

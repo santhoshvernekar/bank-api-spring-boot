@@ -1,10 +1,14 @@
 package com.spring.bank.api.converter;
 
 import com.spring.bank.api.model.dto.AccountDto;
+import com.spring.bank.api.model.dto.AccountList;
 import com.spring.bank.api.model.dto.BalanceDto;
 import com.spring.bank.api.model.dto.CardDto;
 import com.spring.bank.api.model.entity.Account;
 import com.spring.bank.api.model.entity.Card;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AccountDtoConverter {
@@ -22,6 +26,16 @@ public class AccountDtoConverter {
         return converted;
     }
 
+    public static AccountList toList(List<Account> entity) {
+        AccountList accountList = new AccountList();
+        List<AccountDto> dtoList = new ArrayList<>();
+        for (Account a : entity) {
+            dtoList.add(toDto(a));
+        }
+        accountList.setItems(dtoList);
+        return accountList;
+    }
+
     public static AccountDto toDto(Account entity) {
         AccountDto converted = new AccountDto();
         CardDto cardDto = new CardDto();
@@ -32,7 +46,6 @@ public class AccountDtoConverter {
         cardDto.setAvailableCardLimit(entity.getCard().getAvailableCardLimit());
         converted.setCard(cardDto);
         converted.setCurrentBalance(entity.getCurrentBalance());
-        converted.setCustomerId(entity.getCustomer().getId());
         converted.setCustomerId(entity.getId());
         return converted;
     }

@@ -61,20 +61,21 @@ public class UtilityHelper {
         customer3.setEmail("naveen@email.com");
         customer3.setTitle("Mr");
 
+
         Customer customer4 = new Customer();
         Account account4 = new Account();
         Card card4 = new Card();
-        card3.setCardType(CardType.DEBIT_CARD);
-        card3.setCardNumber(6547L);
-        card3.setExpiryDate("2025-01-01");
-        card3.setCvvNumber("526");
-        account3.setCurrentBalance(BigDecimal.valueOf(20000));
-        account3.setCard(card4);
-        customer3.setAccount(account4);
-        customer3.setFirstName("Maria");
-        customer3.setLastName("P");
-        customer3.setEmail("maria@email.com");
-        customer3.setTitle("Mrs");
+        card4.setCardType(CardType.CREDIT_CARD);
+        card4.setCardNumber(6547L);
+        card4.setExpiryDate("2025-01-01");
+        card4.setCvvNumber("526");
+        account4.setCurrentBalance(new BigDecimal("20000"));
+        account4.setCard(card4);
+        customer4.setAccount(account4);
+        customer4.setFirstName("Maria");
+        customer4.setLastName("P");
+        customer4.setEmail("maria@email.com");
+        customer4.setTitle("Mrs");
 
         return Arrays.asList(customer1, customer2, customer3, customer4);
 

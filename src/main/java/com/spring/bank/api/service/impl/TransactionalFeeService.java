@@ -3,6 +3,7 @@ package com.spring.bank.api.service.impl;
 import com.spring.bank.api.error.BankApplicationException;
 import com.spring.bank.api.model.entity.Account;
 import com.spring.bank.api.model.enums.ActivityType;
+import com.spring.bank.api.model.enums.CardType;
 import com.spring.bank.api.service.ITransactionalFeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,26 +26,15 @@ public class TransactionalFeeService implements ITransactionalFeeService {
     public BigDecimal getFees(ActivityType activityType, Account account, BigDecimal amount) {
         BigDecimal fee;
         final String FEE_MESSAGE = "Calculated Fee Amount for : {} is {}";
-        switch (account.getCard().getCardType()) {
-            case DEBIT_CARD:
-                fee = BigDecimal.ZERO;
-                break;
-            case CREDIT_CARD:
-
-                if (ActivityType.TRANSFER.equals(activityType)) {
-                    fee = CC_TRANSFER_FEE.multiply(amount, mathContext); // 0.01 * Amount
-                    log.info(FEE_MESSAGE, activityType, fee.toString());
-                    break;
-                } else if (ActivityType.WITHDRAW.equals(activityType)) {
-                    fee = CC_WITHDRAWAL_FEE.multiply(amount, mathContext); // 0.01 * Amount
-                    log.info(FEE_MESSAGE, activityType, fee.toString());
-                    break;
-                }
-            default:
-                throw BankApplicationException.to("Unknown ActivityType: %s", activityType);
+        if (account.getCard().getCardType().equals(CardType.CREDIT_CARD)) {
+            fee = CC_WITHDRAWAL_FEE.multiply(amount, mathContext); // 0.01 * Amount
+            log.info(FEE_MESSAGE, activityType, fee.toString());
+        } else if (account.getCard().getCardType().equals(CardType.DEBIT_CARD)) {
+            fee = BigDecimal.ZERO;
+        } else {
+            throw BankApplicationException.to("Unknown ActivityType: %s", activityType);
         }
         return fee;
-
     }
 
     @Override

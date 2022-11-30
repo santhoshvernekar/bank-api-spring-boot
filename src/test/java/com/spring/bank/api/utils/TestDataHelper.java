@@ -13,7 +13,6 @@ import java.util.List;
 
 public class TestDataHelper {
 
-    public static final Long CUSTOMER_ID_FOR_NEW_BANK_ACCOUNT = 1L;
     public static final ObjectMapper MAPPER = new ObjectMapper();
     private static final String FIRST_NAME1 = "Santhosh";
     private static final String LAST_NAME1 = "Vernekar";
@@ -56,7 +55,6 @@ public class TestDataHelper {
         card1.setCardNumber(1234L);
         card1.setExpiryDate("2025-01-01");
         card1.setCvvNumber("123");
-        //  card1.setAccount(getAccountInfoWithCard());
         card1.setTotalLimit(BigDecimal.valueOf(10000));
         return card1;
     }
@@ -72,7 +70,6 @@ public class TestDataHelper {
 
     public static Customer getCustomerObject(Long id) {
         Customer customer = new Customer();
-        // customer.setAccount(getAccountInfoWithCard());
         customer.setId(id);
         customer.setFirstName("Santhosh");
         customer.setLastName("Vernekar");

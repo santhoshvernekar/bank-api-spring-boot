@@ -42,10 +42,8 @@ public class AccountController {
     @Operation(description = "Retrieve All Accounts Details")
     @GetMapping
     public ResponseEntity<AccountList> getAllAccounts() {
-
-        AccountList list = new AccountList();
-        list.setItems(accountService.getBankAccountList());
-        return new ResponseEntity<>(list, HttpStatus.OK);
+        return new ResponseEntity<>(AccountDtoConverter.
+                toList(accountService.getBankAccountList()), HttpStatus.OK);
     }
 
     @Operation(description = "Retrieve Account by given AccountId")

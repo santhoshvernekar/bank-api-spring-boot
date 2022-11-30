@@ -44,5 +44,4 @@ public class Card extends BaseEntity {
     @JsonBackReference
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "card")
     private Account account;
-
 }

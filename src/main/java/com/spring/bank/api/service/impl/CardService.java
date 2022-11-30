@@ -19,4 +19,10 @@ public class CardService implements ICardService {
         return cardRepository.findById(cardId)
                 .orElseThrow(() -> BankApplicationException.to("** Card not found for id :: " + cardId));
     }
+
+    @Override
+    public Card getByCardNumber(Long cardNumber) {
+        return cardRepository.getByCardNumber(cardNumber)
+                .orElseThrow(() -> BankApplicationException.to("** Card not found for Number :: " + cardNumber));
+    }
 }
