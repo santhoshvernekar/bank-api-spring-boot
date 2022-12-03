@@ -103,8 +103,8 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/error/*.java</exclude>
-                        <exclude>**/config/*.java</exclude>
+                        <exclude>**/error/*.*</exclude>
+                        <exclude>**/config/*.*</exclude>
                     </excludes>
                     <includes>
                     </includes>
@@ -123,6 +123,11 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
                 <configuration>
+                    <excludes>
+                        <exclude>**/error/*</exclude>
+                        <exclude>**/config/*</exclude>
+                        <exclude>**/converter/*</exclude>
+                    </excludes>
                     <rules>
                         <rule implementation="org.jacoco.maven.RuleConfiguration">
                             <element>BUNDLE</element>
