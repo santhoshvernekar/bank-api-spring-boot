@@ -27,7 +27,7 @@ public class AccountService implements IAccountService, IAccountActivityService 
     // Below dependencies can be extracted from Class with another service
     private final ICustomerService customerService;
     private final CardRepository cardRepository;
-    private final String ACCOUNT_NOT_FOUND = "** Account not found for id :: ";
+    private static final String ACCOUNT_NOT_FOUND = "** Account not found for id :: ";
     public List<Account> getBankAccountList() {
         return accountRepository.findAll();
     }
@@ -42,9 +42,7 @@ public class AccountService implements IAccountService, IAccountActivityService 
         Preconditions.checkNotNull(accountId, MESSAGE_FORMAT_NO_ACCOUNT, accountId);
 
         return accountRepository.findById(accountId)
-                .orElseThrow(() -> {
-                    return BankApplicationException.to(ACCOUNT_NOT_FOUND + accountId);
-                });
+                .orElseThrow(() -> BankApplicationException.to(ACCOUNT_NOT_FOUND + accountId));
     }
 
     // This can be moved another Interface for Separation of concern

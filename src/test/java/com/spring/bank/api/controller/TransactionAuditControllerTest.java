@@ -1,7 +1,6 @@
 package com.spring.bank.api.controller;
 
 import com.spring.bank.api.service.ITransactionAuditService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -22,13 +21,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TransactionAuditControllerTest {
+class TransactionAuditControllerTest {
     @Mock
     private ITransactionAuditService transactionAuditService;
     @Autowired
     private MockMvc resource;
 
-    @Before
+    @org.junit.jupiter.api.BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
         TransactionAuditController transactionAuditController = new TransactionAuditController(transactionAuditService);
@@ -36,10 +35,9 @@ public class TransactionAuditControllerTest {
                 .build();
     }
 
-    //  @Test
     @ParameterizedTest
     @ValueSource(strings = {"/api/v1/transaction-audits", "/api/v1/transaction-audits/accounts/1", "/api/v1/transaction-audits/cards/1"})
-    public void should_get_Transaction_List(String target) throws Exception {
+    void should_get_Transaction_List(String target) throws Exception {
         resource.perform(get(target)).andExpect(status().is2xxSuccessful()).andDo(print()).andReturn();
     }
 
