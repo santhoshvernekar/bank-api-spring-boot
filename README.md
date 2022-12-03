@@ -2,6 +2,18 @@
 
 Spring Boot Application Demonstrating activities in Bank Account using Debit and Credit Cards
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=bugs)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=coverage)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+
 ### Components:
 - Java
 - [Spring Boot](https://spring.io/projects/spring-boot)
