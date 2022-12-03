@@ -4,6 +4,7 @@ Spring Boot Application Demonstrating activities in Bank Account using Debit and
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
