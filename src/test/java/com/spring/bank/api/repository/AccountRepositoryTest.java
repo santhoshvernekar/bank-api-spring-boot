@@ -25,7 +25,7 @@ public class AccountRepositoryTest {
         List<Account> listAfter = accountRepository.findAll();
         BigDecimal reducedAmount = listAfter.get(0).getCurrentBalance();
         BigDecimal difference = previousAmount.subtract(reducedAmount);
-        Assert.assertEquals(difference.intValue(), 100);
+        Assert.assertEquals(100, difference.intValue());
 
     }
 
@@ -37,7 +37,7 @@ public class AccountRepositoryTest {
         List<Account> listAfter = accountRepository.findAll();
         BigDecimal increasedAmount = listAfter.get(0).getCurrentBalance();
         BigDecimal difference = increasedAmount.subtract(previousAmount);
-        Assert.assertEquals(difference.intValue(), 100);
+        Assert.assertEquals(100, difference.intValue());
     }
 
 }

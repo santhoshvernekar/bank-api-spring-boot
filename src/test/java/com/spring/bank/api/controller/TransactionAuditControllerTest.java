@@ -3,9 +3,12 @@ package com.spring.bank.api.controller;
 import com.spring.bank.api.service.ITransactionAuditService;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -21,35 +24,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class TransactionAuditControllerTest {
     @Mock
-    ITransactionAuditService transactionAuditService;
+    private ITransactionAuditService transactionAuditService;
+    @Autowired
     private MockMvc resource;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-
         TransactionAuditController transactionAuditController = new TransactionAuditController(transactionAuditService);
         resource = MockMvcBuilders.standaloneSetup(transactionAuditController)
                 .build();
     }
 
-    @Test
-    public void should_get_Transaction_List() throws Exception {
-        String target = "/api/v1/transaction-audits";
+    //  @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"/api/v1/transaction-audits", "/api/v1/transaction-audits/accounts/1", "/api/v1/transaction-audits/cards/1"})
+    public void should_get_Transaction_List(String target) throws Exception {
         resource.perform(get(target)).andExpect(status().is2xxSuccessful()).andDo(print()).andReturn();
     }
 
-    @Test
-    public void should_get_Transaction_List_ByAccountId() throws Exception {
-        String target = "/api/v1/transaction-audits/accounts/1";
-        resource.perform(get(target)).andExpect(status().is2xxSuccessful()).andDo(print()).andReturn();
-    }
-
-    @Test
-    public void should_get_Transaction_List_ByCardId() throws Exception {
-        String target = "/api/v1/transaction-audits/cards/1";
-        resource.perform(get(target)).andExpect(status().is2xxSuccessful()).andDo(print()).andReturn();
-    }
 
     @Test
     public void should_get_Transaction_List_ByCardNumber() throws Exception {

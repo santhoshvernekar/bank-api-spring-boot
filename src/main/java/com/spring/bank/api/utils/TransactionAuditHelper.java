@@ -30,4 +30,8 @@ public class TransactionAuditHelper {
         return transactionAudit.status(activityStatus).remarks(remark);
     }
 
+    private TransactionAuditHelper() {
+        // Do Nothing
+    }
+
 }

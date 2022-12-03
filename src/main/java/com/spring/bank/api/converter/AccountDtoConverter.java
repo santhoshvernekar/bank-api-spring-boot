@@ -57,4 +57,8 @@ public class AccountDtoConverter {
         converted.setAccountId(entity.getId());
         return converted;
     }
+
+    private AccountDtoConverter() {
+        // Do Nothing
+    }
 }

@@ -23,4 +23,7 @@ public class CustomerToDtoConverter {
         return converted;
     }
 
+    private CustomerToDtoConverter() {
+        // Do Nothing
+    }
 }

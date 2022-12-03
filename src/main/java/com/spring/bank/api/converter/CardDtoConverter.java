@@ -22,4 +22,8 @@ public class CardDtoConverter {
         converted.setCardNumber(object.getCardNumber());
         return converted;
     }
+
+    private CardDtoConverter() {
+        // Do Nothing
+    }
 }

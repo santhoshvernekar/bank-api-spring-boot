@@ -12,6 +12,8 @@ import java.util.function.Supplier;
 
 public class UtilityHelper {
 
+    public static final String EXPIRY_DATE = "2025-01-01";
+    public static final String PHONE_NUMBER = "12345678";
     public static final Supplier<List<Customer>> customerSupplier = () -> {
 
         Customer customer1 = new Customer();
@@ -19,7 +21,7 @@ public class UtilityHelper {
         Card card1 = new Card();
         card1.setCardType(CardType.DEBIT_CARD);
         card1.setCardNumber(1234L);
-        card1.setExpiryDate("2025-01-01");
+        card1.setExpiryDate(EXPIRY_DATE);
         card1.setCvvNumber("123");
         card1.setAvailableCardLimit(new BigDecimal("1000"));
         account1.setCurrentBalance(new BigDecimal("1000"));
@@ -29,7 +31,7 @@ public class UtilityHelper {
         customer1.setLastName("Vernekar");
         customer1.setEmail("santhosh@email.com");
         customer1.setTitle("Mr");
-        customer1.setPhoneNumber("12345678");
+        customer1.setPhoneNumber(PHONE_NUMBER);
         customer1.setAddress("Address1");
 
         Customer customer2 = new Customer();
@@ -37,7 +39,7 @@ public class UtilityHelper {
         Card card2 = new Card();
         card2.setCardType(CardType.CREDIT_CARD);
         card2.setCardNumber(4567L);
-        card2.setExpiryDate("2025-01-01");
+        card2.setExpiryDate(EXPIRY_DATE);
         card2.setCvvNumber("123");
         card2.setAvailableCardLimit(new BigDecimal("1000"));
         account2.setCurrentBalance(new BigDecimal("1000"));
@@ -47,7 +49,7 @@ public class UtilityHelper {
         customer2.setLastName("J");
         customer2.setEmail("marteen@email.com");
         customer2.setTitle("Mr");
-        customer2.setPhoneNumber("12345678");
+        customer2.setPhoneNumber(PHONE_NUMBER);
         customer2.setAddress("Address2");
 
         Customer customer3 = new Customer();
@@ -55,7 +57,7 @@ public class UtilityHelper {
         Card card3 = new Card();
         card3.setCardType(CardType.CREDIT_CARD);
         card3.setCardNumber(7894L);
-        card3.setExpiryDate("2025-01-01");
+        card3.setExpiryDate(EXPIRY_DATE);
         card3.setCvvNumber("425");
         card3.setAvailableCardLimit(new BigDecimal("1000"));
         account3.setCurrentBalance(BigDecimal.ZERO);
@@ -65,7 +67,7 @@ public class UtilityHelper {
         customer3.setLastName("M");
         customer3.setEmail("naveen@email.com");
         customer3.setTitle("Mr");
-        customer3.setPhoneNumber("12345678");
+        customer3.setPhoneNumber(PHONE_NUMBER);
         customer3.setAddress("Address3");
 
         Customer customer4 = new Customer();
@@ -73,7 +75,7 @@ public class UtilityHelper {
         Card card4 = new Card();
         card4.setCardType(CardType.CREDIT_CARD);
         card4.setCardNumber(6547L);
-        card4.setExpiryDate("2025-01-01");
+        card4.setExpiryDate(EXPIRY_DATE);
         card4.setCvvNumber("526");
         account4.setCurrentBalance(new BigDecimal("20000"));
         account4.setCard(card4);

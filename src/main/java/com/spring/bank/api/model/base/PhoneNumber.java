@@ -23,9 +23,10 @@ public class PhoneNumber implements Serializable {
     private int id;
     private String type;
     private String number;
-//    @JsonBackReference
-//    @ManyToOne(cascade= { CascadeType.ALL})
-//    @JoinColumn(name="customer_id")
-//    private BaseUser user;
+
+/* Code:   @JsonBackReference
+    @ManyToOne(cascade= { CascadeType.ALL})
+    @JoinColumn(name="customer_id")
+    private BaseUser user;*/
 
 }

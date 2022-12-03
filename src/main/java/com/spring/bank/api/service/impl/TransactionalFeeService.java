@@ -19,7 +19,6 @@ public class TransactionalFeeService implements ITransactionalFeeService {
     private static final MathContext mathContext = new MathContext(7, RoundingMode.HALF_UP);
     private static final BigDecimal HUNDRED = BigDecimal.valueOf(100);
     // Should be Parameterized, ideally from Config/Datastore
-    private static final BigDecimal CC_TRANSFER_FEE = BigDecimal.ONE.divide(HUNDRED, mathContext); // 1%
     private static final BigDecimal CC_WITHDRAWAL_FEE = BigDecimal.ONE.divide(HUNDRED, mathContext); // 1%
 
     @Override

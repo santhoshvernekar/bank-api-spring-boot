@@ -8,4 +8,7 @@ public class ValidationHelper {
         return BigDecimal.ZERO.compareTo(amount) > 0;
     }
 
+    private ValidationHelper() {
+        // Do Nothing
+    }
 }

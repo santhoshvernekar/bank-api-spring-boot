@@ -4,11 +4,8 @@ import com.spring.bank.api.model.entity.Account;
 
 import java.util.List;
 
-public interface IAccountService {
+public interface IAccountService extends IAccountSaveService {
     List<Account> getBankAccountList();
 
     Account getAccountById(Long accountId);
-
-    void saveAccount(Long customerId, Account fromDto);
-
 }

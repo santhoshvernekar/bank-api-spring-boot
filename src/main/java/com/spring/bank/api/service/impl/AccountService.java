@@ -27,7 +27,7 @@ public class AccountService implements IAccountService, IAccountActivityService 
     // Below dependencies can be extracted from Class with another service
     private final ICustomerService customerService;
     private final CardRepository cardRepository;
-
+    private final String ACCOUNT_NOT_FOUND = "** Account not found for id :: ";
     public List<Account> getBankAccountList() {
         return accountRepository.findAll();
     }
@@ -42,7 +42,9 @@ public class AccountService implements IAccountService, IAccountActivityService 
         Preconditions.checkNotNull(accountId, MESSAGE_FORMAT_NO_ACCOUNT, accountId);
 
         return accountRepository.findById(accountId)
-                .orElseThrow(() -> BankApplicationException.to("** Account not found for id :: " + accountId));
+                .orElseThrow(() -> {
+                    return BankApplicationException.to(ACCOUNT_NOT_FOUND + accountId);
+                });
     }
 
     // This can be moved another Interface for Separation of concern
@@ -52,7 +54,7 @@ public class AccountService implements IAccountService, IAccountActivityService 
         if (rowsAffected == 0) throw BankApplicationException.to(
                 "Withdrawal transaction is either failed or not completed");
         return accountRepository.findById(accountId)
-                .orElseThrow(() -> BankApplicationException.to("** Account not found for id :: " + account.getId()));
+                .orElseThrow(() -> BankApplicationException.to(ACCOUNT_NOT_FOUND + account.getId()));
     }
 
     // This can be moved another Interface for Separation of concern
@@ -62,7 +64,7 @@ public class AccountService implements IAccountService, IAccountActivityService 
         if (rowsAffected == 0) throw BankApplicationException.to(
                 "Transfer transaction is either failed or not completed");
         return accountRepository.findById(accountId)
-                .orElseThrow(() -> BankApplicationException.to("** Account not found for id :: " + account.getId()));
+                .orElseThrow(() -> BankApplicationException.to(ACCOUNT_NOT_FOUND + account.getId()));
     }
 
     public void saveAccount(Long customerId, @Valid Account account) {
@@ -70,7 +72,6 @@ public class AccountService implements IAccountService, IAccountActivityService 
         Customer customer = customerService.getCustomer(customerId);
         account.setCustomer(customer);
         Card card = account.getCard();
-        //  account.setCard(null);
         Account savedAccount = accountRepository.save(account);
         card.setAccount(savedAccount);
         cardRepository.save(card);

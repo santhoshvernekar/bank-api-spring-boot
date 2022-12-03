@@ -11,6 +11,7 @@ import com.spring.bank.api.service.*;
 import com.spring.bank.api.utils.TransactionAuditHelper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -97,7 +98,7 @@ public class TransactionService implements ITransactionService {
 
         validationService.validateWithdrawalCondition(account, totalAmount);
 
-        Account senderAccount = accountActivityService.reduceBalance(account, totalAmount);
+        val senderAccount = accountActivityService.reduceBalance(account, totalAmount);
         validationService.validateCurrentBalance(senderAccount);
 
         transactionAuditBuilder.status(ActivityStatus.SUCCESS)
