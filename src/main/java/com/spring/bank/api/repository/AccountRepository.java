@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Transactional
 /*
    - Repository pattern is used for Data Access
- * - Here Dao pattern can be considered since underlying operations Differ, Not just simple find and Save
+ *
  * */
 public interface AccountRepository extends JpaRepository<Account, Long> {
     @Modifying(clearAutomatically = true)

@@ -31,6 +31,21 @@ public class SpringBootMain {
     }
 
     /*
+     ** Task **
+     *
+     *  Write some code in Java to simulate a simple bank account. It should be possible to transfer and withdraw money from an account. It is possible to pay with either debit card or credit card. If a transfer/withdraw is done with a credit card, 1% of the amount is charged extra. Use design patterns where applicable and write some test cases as well.
+     *    Technologies: Java, Spring boot, in-memory database.
+     *     Requirement / Validations:
+     *      -	A negative balance is not possible
+     *      -	Account should contain at least some user details, card details and current balance
+     *      -	One rest endpoint to see current available balance in all accounts
+     *      -	One rest endpoint to withdraw money
+     *      -	One rest endpoint to transfer money
+     *      -	One credit card or debit card is linked with one account
+     *      -	It should be able to audit transfers or withdrawals
+     *      -	Front end part is not required
+     *      -	Feel free to make some assumptions if needed & mention them in the code assignment
+
      * - Inserting Some Entries on Application load - Helps in Testing Code
      *
      *  * Assumptions Made : *
@@ -39,6 +54,7 @@ public class SpringBootMain {
      *  - One Customer will have only one CARD
      *  - Account will always be associated with card
      *  - Fix Fee (1% for Credit card and 0 for others)
+     *  - Credit card acts like Debit card with additional Transaction fees(To keep it simple)
      *
      *  * Requirements :
      *  - It should be possible to transfer and withdraw money from an account. It is possible to pay with either debit card or credit card. If a transfer/withdraw is done with a credit card, 1% of the amount is charged extra. Use design patterns where applicable and write some test cases as well.
@@ -75,7 +91,6 @@ public class SpringBootMain {
         return args -> {
 
             List<Customer> customers = customerRepository.findAll();
-
             if (customers.isEmpty()) {
                 log.info("******* Inserting customers to DB *******");
                 customerRepository.saveAll(UtilityHelper.customerSupplier.get());

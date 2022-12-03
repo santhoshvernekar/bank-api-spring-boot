@@ -1,6 +1,6 @@
 # bank-api-spring-boot
 
-Spring Boot Application Demonstrating activities in Bank Account using Cards
+Spring Boot Application Demonstrating activities in Bank Account using Debit and Credit Cards
 
 ### Components:
 - Java

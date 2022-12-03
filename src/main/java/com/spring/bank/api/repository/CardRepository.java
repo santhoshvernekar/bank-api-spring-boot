@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Transactional
 /*
- * Repository pattern would be appropriate for Simple Operations
+ *
  * */
 public interface CardRepository extends JpaRepository<Card, Long> {
 

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Transactional
 /*   - Repository pattern is used for Data Access
- * Here Dao pattern can be considered since underlying operations Differ, Not just simple find and Save
  * */
 public interface TransactionAuditRepository extends JpaRepository<TransactionAudit, Long> {
     @Query("select t from TransactionAudit t where t.bankAccountId = :accountId")

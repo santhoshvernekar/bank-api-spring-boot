@@ -43,7 +43,7 @@ Feature: Card Functionality
     And Check Balance for Account with CardId $2 in System
     When I transfer $200 from First Account with CardId $2 to Account with CardId $1
     And Check Balance for Account with CardId $2 in System
-    And Check Balance for Account with CardId $1 in System
+    Then Check Balance for Account with CardId $1 in System
 
 
   @sanity
@@ -54,7 +54,7 @@ Feature: Card Functionality
     And Check Balance for Account with CardId $1 in System
     When I transfer $150 from First Account with CardId $1 to Account with CardId $2
     And Check Balance for Account with CardId $2 in System
-    And Check Balance for Account with CardId $1 in System
+    Then Check Balance for Account with CardId $1 in System
 
   @sanity
   Scenario: Transfer Money from CREDIT_CARD to CREDIT_CARD
@@ -64,4 +64,8 @@ Feature: Card Functionality
     And Check Balance for Account with CardId $2 in System
     When I transfer $200 from First Account with CardId $2 to Account with CardId $4
     And Check Balance for Account with CardId $2 in System
-    And Check Balance for Account with CardId $4 in System
+    Then Check Balance for Account with CardId $4 in System
+
+  @sanity
+  Scenario: GET card by Number
+    Given Card with CardNumber $1234 exist in System

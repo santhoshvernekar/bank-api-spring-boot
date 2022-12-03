@@ -89,6 +89,6 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
     public static void logError(Exception exception, HttpStatus statusCode) {
         log.error("Exception Cause Message : {}", exception.getMessage());
         log.error("Exception Localised Message : {}", exception.getLocalizedMessage());
-        log.error("Returned Status: {}", HttpStatus.MULTI_STATUS.value());
+        log.error("Returned Status: {}", statusCode.MULTI_STATUS.value());
     }
 }
