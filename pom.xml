@@ -19,9 +19,10 @@
         <cucumber.version>6.8.1</cucumber.version>
         <sonar.organization>santhoshvernekar</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.exclusions>**/error/*,**/config/*, **/*ExceptionHandler*.*, ,**/error/*.*, **/config/*.*
+        <sonar.exclusions>**/error/*,**/config/*,**/converter/*, **/*ExceptionHandler*.*, ,**/error/*.*, **/config/*.*
         </sonar.exclusions>
-        <sonar.coverage.exclusions>**/error/*, **/config/* , **/*ExceptionHandler*.*, **/*ErrorResponse*.*
+        <sonar.coverage.exclusions>**/error/*,**/converter/*, **/config/* , **/*ExceptionHandler*.*,
+            **/*ErrorResponse*.*
         </sonar.coverage.exclusions>
     </properties>
     <dependencies>
@@ -105,6 +106,7 @@
                     <excludes>
                         <exclude>**/error/*.*</exclude>
                         <exclude>**/config/*.*</exclude>
+                        <exclude>**/converter/*.*</exclude>
                     </excludes>
                     <includes>
                     </includes>
