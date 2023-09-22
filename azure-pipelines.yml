@@ -23,8 +23,9 @@ steps:
 - task: PublishCodeCoverageResults@2
   displayName: "Publish Code Coverage results"
   inputs:
-    summaryFileLocation: '${System.DefaultWorkingDirectory}/**/reports/jacoco/test/jacocoTestReport.xml'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/target/site/jacoco/jacoco.xml'
     pathToSources: '$(System.DefaultWorkingDirectory)/src/main/java/'
+    additionalCodeCoverageFiles: '$(System.DefaultWorkingDirectory)/**/*.exec'
 - task: PublishTestResults@1
   displayName: "Publish test results"
   inputs:
