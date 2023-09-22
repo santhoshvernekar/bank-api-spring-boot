@@ -2,6 +2,8 @@
 
 Spring Boot Application Demonstrating activities in Bank Account using Debit and Credit Cards
 
+[![Build Status](https://dev.azure.com/santoshmv121/sample-project/_apis/build/status%2Fsanthoshvernekar.bank-api-spring-boot?branchName=main)](https://dev.azure.com/santoshmv121/sample-project/_build/latest?definitionId=2&branchName=main)
+
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=santhoshvernekar_bank-api-spring-boot&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=santhoshvernekar_bank-api-spring-boot)
