@@ -19,7 +19,18 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    codeCoverageToolOption: 'JaCoCo'
+    codeCoverageClassFilesDirectories: '$(System.DefaultWorkingDirectory)/**/target/classes/'
+    codeCoverageSourceDirectories: '$(System.DefaultWorkingDirectory)/**/src/main/java/'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: true
+    isJacocoCoverageReportXML: true
+    sqMavenPluginVersionChoice: 'latest'
+    checkStyleRunAnalysis: true
     goals: 'package'
+    
 - task: PublishCodeCoverageResults@1
   displayName: "Publish Code Coverage results"
   inputs:
