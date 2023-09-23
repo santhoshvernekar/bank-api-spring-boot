@@ -44,7 +44,8 @@ steps:
     organization: 'san-sample-projects'
     scannerMode: 'Other'
     projectKey: 'san-sample-projects_bank-api-spring-boot'
-
+  env:
+      SONAR_TOKEN: $(sonarToken)
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
