@@ -31,10 +31,15 @@ steps:
   inputs:
     testResultsFormat: "JUnit"
     mergeTestResults: true # Optional
+# - task: SonarCloudPrepare@1
+#   inputs:
+#     SonarCloud: 'SonarCloud'
+#     organization: 'san-sample-projects'
+#     scannerMode: 'Other'
+#     projectKey: 'bank-api-spring-boot'
+    
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'SonarCloud'
     organization: 'san-sample-projects'
     scannerMode: 'Other'
-    projectKey: 'bank-api-spring-boot'
-    
