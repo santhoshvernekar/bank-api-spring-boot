@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <cucumber.version>6.8.1</cucumber.version>
-        <sonar.organization>santhoshvernekar</sonar.organization>
+        <sonar.organization>san-sample-projects</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.exclusions>**/error/*,**/config/*,**/converter/*, **/*ExceptionHandler*.*, ,**/error/*.*, **/config/*.*
         </sonar.exclusions>
