@@ -44,7 +44,6 @@ steps:
     organization: 'san-sample-projects'
     scannerMode: 'Other'
     projectKey: 'san-sample-projects_bank-api-spring-boot'
-    cliProjectKey: 'san-sample-projects_bank-api-spring-boot'
 
 - task: SonarCloudPublish@1
   inputs:
