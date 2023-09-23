@@ -43,6 +43,7 @@ steps:
     SonarCloud: 'SonarCloud'
     organization: 'san-sample-projects'
     scannerMode: 'Other'
+    extraProperties: 'sonar.projectKey=san-sample-projects_bank-api-spring-boot'
 
 - task: SonarCloudPublish@1
   inputs:
