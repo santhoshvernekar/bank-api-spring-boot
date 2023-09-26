@@ -161,4 +161,16 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>mavenServices</id>
+            <url>https://pkgs.dev.azure.com/santoshmv121/sample-project/_packaging/mavenServices/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </distributionManagement>     
 </project>
