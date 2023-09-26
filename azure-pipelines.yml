@@ -15,7 +15,7 @@ steps:
   inputs:
     artifactsFeeds: mavenServices
 - task: Maven@3
-  displayName: "Maven Task Package"
+  displayName: "Maven Task - Package"
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
